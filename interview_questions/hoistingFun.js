@@ -1,4 +1,4 @@
-// check();
+check();
 var check = function () {
   console.log("hi");
 };
