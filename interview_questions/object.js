@@ -13,6 +13,7 @@ var obj = {
   getName2: () => this.name,
 };
 
+
 console.log(obj.prop.getName());
 console.log(obj.getName());
 console.log(obj.getName2());
