@@ -18,3 +18,4 @@ Rabbit.sleep();
 
 Rabbit.walks();
 Animal.walks();
+
