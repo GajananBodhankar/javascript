@@ -98,6 +98,21 @@ class LinkedList {
       }
     }
   }
+  searchItem(value) {
+    let temp = this.head,
+      count = 0;
+    while (temp) {
+      if (temp.value == value) {
+        return count + 1;
+      }
+      count++;
+      temp = temp.next;
+    }
+    return -1;
+  }
+  reverse(){
+    
+  }
 }
 
 let node = new Node(10);
@@ -110,3 +125,6 @@ list.InsertIndex(7, 3);
 list.RemoveValue(10);
 console.log(list.getList());
 console.log(list.size);
+console.log(list.searchItem(5));
+console.log(list.searchItem(20));
+console.log(list.searchItem(2));
