@@ -17,12 +17,11 @@ function mergeSort(arr, start, mid, end) {
     if (arr[low] < arr[high]) {
       temp[i] = arr[low];
       low++;
-      i++;
     } else {
       temp[i] = arr[high];
       high++;
-      i++;
     }
+    i++;
   }
   if (low > mid) {
     for (let j = high; j <= end; j++) {
