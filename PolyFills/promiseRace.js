@@ -4,19 +4,21 @@ function Prom1(params) {
       if (params % 2 == 0) {
         res("Resolved");
       } else {
-        rej("rejected");
+        rej("rejected 1");
       }
-    });
-  }, 5000);
+    }, 5000);
+  });
 }
 
 function Prom2(params) {
   return new Promise((res, rej) => {
-    if (params % 2 == 0) {
-      res("Resolved");
-    } else {
-      rej("rejected");
-    }
+    setTimeout(() => {
+      if (params % 2 == 0) {
+        res("Resolved");
+      } else {
+        rej("rejected 2");
+      }
+    }, 2000);
   });
 }
 
@@ -29,6 +31,6 @@ function race(promises) {
     });
   });
 }
-race([Prom1(10), Prom2(21)])
+race([Prom1(11), Prom2(21)])
   .then((e) => console.log(e))
   .catch((e) => console.log(e));
