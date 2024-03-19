@@ -9,5 +9,6 @@ Array.prototype.myFilter = function (callback) {
   }
   return result;
 };
+console.log(arr.filter(i=>i))
 
-console.log(arr.myFilter((i) => i > 30));
+console.log(arr.myFilter((i) => i >30));
