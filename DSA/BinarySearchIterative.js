@@ -1,7 +1,7 @@
 function BinarySearchIterative(arr, target) {
   let start = 0,
     end = arr.length;
-  while (start < end) {
+  while (start <= end) {
     mid = Math.floor((start + end) / 2);
     if (arr[mid] == target) {
       return mid;
@@ -14,4 +14,4 @@ function BinarySearchIterative(arr, target) {
   return -1;
 }
 
-console.log(BinarySearchIterative([10, 20, 30, 40, 50], 520));
+console.log(BinarySearchIterative([1, 3, 5, 7, 13], 7));

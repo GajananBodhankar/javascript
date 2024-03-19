@@ -12,10 +12,11 @@ let Animal = {
 };
 
 let Rabbit = {};
-Rabbit.__proto__ = Animal;
+// Rabbit.__proto__ = Animal;
+// OR
+// Object.setPrototypeOf(Rabbit, Animal);
 
 Rabbit.sleep();
 
 Rabbit.walks();
 Animal.walks();
-
