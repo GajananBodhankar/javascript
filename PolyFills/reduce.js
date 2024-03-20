@@ -13,4 +13,4 @@ Array.prototype.myReduce = function (callback, initialValue) {
   return res;
 };
 
-console.log(arr.myReduce((acc, i) => (acc += i), 0));
+console.log(arr.myReduce((acc, i) => (acc += i)));
