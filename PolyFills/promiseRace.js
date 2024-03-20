@@ -14,7 +14,7 @@ function Prom2(params) {
   return new Promise((res, rej) => {
     setTimeout(() => {
       if (params % 2 == 0) {
-        res("Resolved");
+        res("Resolved 2");
       } else {
         rej("rejected 2");
       }
@@ -31,6 +31,6 @@ function race(promises) {
     });
   });
 }
-race([Prom1(11), Prom2(21)])
+race([Prom1(11), Prom2(20)])
   .then((e) => console.log(e))
   .catch((e) => console.log(e));

@@ -18,21 +18,29 @@ function Prom2(arg) {
 }
 
 function any(promises) {
-  let count = 0;
-  return new Promise((res, rej) => {
-    promises.forEach((element) => {
-      Promise.resolve(element)
+  let count = 0,
+    errorArr = [],
+    errorCount = 0;
+  return new Promise(function (res, rej) {
+    promises.forEach((i) => {
+      Promise.resolve(i)
         .then((e) => {
           count++;
           if (count == 1) {
             res(e);
           }
         })
-        .catch((e) => rej(e));
+        .catch((e) => {
+          errorArr.push(e);
+          errorCount++;
+          if (errorCount == promises.length) {
+            rej(errorArr);
+          }
+        });
     });
   });
 }
 
-any([Prom1(10), Prom2(10)])
+any([Prom1(101), Prom2(101)])
   .then((e) => console.log(e))
   .catch((e) => console.log(e));

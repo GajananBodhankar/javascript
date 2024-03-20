@@ -19,29 +19,23 @@ function Prom2(params) {
 }
 
 function all(promises) {
-  let arr = [],
+  let result = [],
     total = 0;
   return new Promise(function (res, rej) {
     promises.forEach((i) => {
       Promise.resolve(i)
-        .then((result) => {
-          arr.push(result);
+        .then((val) => {
+          result.push(val);
           total++;
           if (total == promises.length) {
-            res(arr);
+            res(result);
           }
         })
-        .catch((e) => {
-          rej(e);
-        });
+        .catch((e) => rej(e));
     });
   });
 }
 
-all([Prom1(10), Prom2(20)])
-  .then((e) => console.log(e))
-  .catch((e) => console.log(e));
-
-all([Prom1(13), Prom2(20)])
-  .then((e) => console.log(e))
+all([Prom1(2), Prom2(2)])
+  .then((res) => console.log(res))
   .catch((e) => console.log(e));
