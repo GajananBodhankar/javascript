@@ -36,6 +36,8 @@ function mergeSort(arr, start, mid, end) {
   }
   for (let j = start; j <= end; j++) {
     arr[j] = temp[j];
+    // if not using 'i' as count and just pushing elements to temp array 
+    // then here, use arr[j]=temp[j-start]
   }
 }
 
