@@ -15,29 +15,34 @@ function mergeSort(arr, start, mid, end) {
     temp = [];
   while (low <= mid && high <= end) {
     if (arr[low] < arr[high]) {
-      temp[i] = arr[low];
+      // temp[i] = arr[low];
+      temp.push(arr[low]);
       low++;
     } else {
-      temp[i] = arr[high];
+      // temp[i] = arr[high];
+      temp.push(arr[high]);
       high++;
     }
-    i++;
+    // i++;
   }
   if (low > mid) {
     for (let j = high; j <= end; j++) {
-      temp[i] = arr[j];
-      i++;
+      // temp[i] = arr[j];
+      // i++;
+      temp.push(arr[j]);
     }
   } else {
     for (let j = low; j <= mid; j++) {
-      temp[i] = arr[j];
-      i++;
+      // temp[i] = arr[j];
+      // i++;
+      temp.push(arr[j]);
     }
   }
   for (let j = start; j <= end; j++) {
-    arr[j] = temp[j];
-    // if not using 'i' as count and just pushing elements to temp array 
+    // arr[j] = temp[j];
+    // if not using 'i' as count and just pushing elements to temp array
     // then here, use arr[j]=temp[j-start]
+    arr[j] = temp[j - start];
   }
 }
 
