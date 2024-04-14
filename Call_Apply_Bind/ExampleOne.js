@@ -1,12 +1,9 @@
-let Obj = {
-    name: 'gajanan',
-    age: 22
+const Person = {
+    name: 'Gajanan'
 }
 
-function Show(address) {
-    console.log(this.name, this.age, address)
+function Greet() {
+    console.log("Hello", this.name)
 }
 
-
-
-Show.call(Obj)
+Greet.call(Person)
