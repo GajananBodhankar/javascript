@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" />
+    <script>
+      function debounce(callback, timer) {
+        let time;
+        return function (...arg) {
+          if (!time) {
+            time = undefined;
+          }
+          time = setTimeout(() => {
+            callback(...arg);
+          }, timer);
+        };
+      }
+    //   function throattling(callback, timer) {
+    //     let time;
+    //     return function (...arg) {
+    //       if (!time) {
+    //         time = setTimeout(() => {
+    //           time = undefined;
+    //           callback(arg);
+    //         }, timer);
+    //       }
+    //     };
+    //   }
+      let x = debounce(() => console.log("object"), 500);
+      let input = document.querySelector("input");
+      input.addEventListener("input", (e) => {
+        x();
+      });
+    </script>
+  </body>
+</html>
