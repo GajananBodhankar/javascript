@@ -7,15 +7,39 @@
     <style>
       .circleOne {
         display: none;
+        border-radius: 150px;
+        position: absolute;
+        height: 300px;
+        width: 300px;
+        border: 1px solid black;
       }
       .circleTwo {
         display: none;
+        position: absolute;
+
+        border-radius: 150px;
+        height: 300px;
+        width: 300px;
+        border: 1px solid black;
       }
       .one {
+        position: absolute;
+
         display: inline-block;
+        border-radius: 150px;
+        height: 300px;
+        width: 300px;
+        border: 1px solid black;
       }
+
       .two {
+        position: absolute;
+
         display: inline-block;
+        border-radius: 150px;
+        height: 300px;
+        width: 300px;
+        border: 1px solid black;
       }
     </style>
   </head>
@@ -26,8 +50,7 @@
       let x = document.querySelector("#one");
       let y = document.querySelector("#two");
       document.addEventListener("click", (e) => {
-        let num = Math.random() * 700,
-          num2 = Math.random() * 700;
+        console.log(e.clientX, e.clientY);
         if (
           x.classList.contains("circleOne") &&
           y.classList.contains("circleTwo")
@@ -36,20 +59,14 @@
           x.classList.remove("circleOne");
           x.setAttribute(
             "style",
-            `border-radius: ${num / 2}px;width:${num}px;height: ${num}px;
-              border: 1px solid black;transform:translate(${e.clientX}px,${
-              e.clientY
-            }px)`
+            `transform:translate(${e.clientX - 150}px,${e.clientY - 150}px)`
           );
         } else if (y.classList.contains("circleTwo")) {
           y.classList.add("two");
           y.classList.remove("circleTwo");
           y.setAttribute(
             "style",
-            `border-radius: ${num2 / 2}px;width:${num2}px;height: ${num2}px;
-            border: 1px solid black;  border: 1px solid black;transform:translate(${
-              e.clientX
-            }px,${e.clientY}px)`
+            `transform:translate(${e.clientX - 150}px,${e.clientY - 150}px)`
           );
         } else {
           x.classList.add("circleOne");
@@ -57,7 +74,16 @@
           x.classList.remove("one");
           y.classList.remove("two");
         }
-        console.log(x.clientX);
+        if (x.classList.contains("one") && y.classList.contains("two")) {
+          let one = x.getAttribute("style").split(/(,)/);
+          let two = y.getAttribute("style").split(/(,)/);
+          console.log(
+            one[0].split("(")[1],
+            one[2].split(")")[0],
+            two[0].split("(")[1],
+            two[2].split(")")[0]
+          );
+        }
       });
       console.log(Math.random() * window.innerWidth);
     </script>
