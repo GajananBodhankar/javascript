@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .circleOne {
+        display: none;
+      }
+      .circleTwo {
+        display: none;
+      }
+      .one {
+        display: inline-block;
+      }
+      .two {
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="circleOne" id="one"></div>
+    <div class="circleTwo" id="two"></div>
+    <script>
+      let x = document.querySelector("#one");
+      let y = document.querySelector("#two");
+      document.addEventListener("click", (e) => {
+        let num = Math.random() * 700,
+          num2 = Math.random() * 700;
+        if (
+          x.classList.contains("circleOne") &&
+          y.classList.contains("circleTwo")
+        ) {
+          x.classList.add("one");
+          x.classList.remove("circleOne");
+          x.setAttribute(
+            "style",
+            `border-radius: ${num / 2}px;width:${num}px;height: ${num}px;
+              border: 1px solid black;transform:translate(${e.clientX}px,${
+              e.clientY
+            }px)`
+          );
+        } else if (y.classList.contains("circleTwo")) {
+          y.classList.add("two");
+          y.classList.remove("circleTwo");
+          y.setAttribute(
+            "style",
+            `border-radius: ${num2 / 2}px;width:${num2}px;height: ${num2}px;
+            border: 1px solid black;  border: 1px solid black;transform:translate(${
+              e.clientX
+            }px,${e.clientY}px)`
+          );
+        } else {
+          x.classList.add("circleOne");
+          y.classList.add("circleTwo");
+          x.classList.remove("one");
+          y.classList.remove("two");
+        }
+        console.log(x.clientX);
+      });
+      console.log(Math.random() * window.innerWidth);
+    </script>
+  </body>
+</html>
