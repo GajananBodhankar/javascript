@@ -19,5 +19,4 @@ Function.prototype.myBind = function (context, ...args) {
 }
 
 let x = getData.myBind(Obj)
-
 x()
