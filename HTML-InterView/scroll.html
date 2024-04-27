@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container"></div>
+    <script>
+      async function call(start = 0, val) {
+        let result = await fetch("https://jsonplaceholder.typicode.com/posts");
+        let data = await result.json();
+        let container = document.querySelector(".container");
+        console.log(start, val);
+        for (let i = start; i < val; i++) {
+          let div = document.createElement("div");
+          let p = document.createElement("p");
+          p.innerText = data[i].title;
+          let p2 = document.createElement("p");
+          p2.innerText = data[i].id;
+          div.append(p, p2);
+          container.appendChild(div);
+        }
+      }
+      call(0, 10);
+      let count = 10,
+        timer;
+      window.addEventListener("scroll", (e) => {
+        if (window.scrollY == 0) {
+          call(0, 10);
+          count = 0;
+        } else if (count < 100) {
+          if (!timer) {
+            timer = setTimeout(() => {
+              count++;
+              call(count - 1, count);
+              timer = undefined;
+            }, 10);
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
