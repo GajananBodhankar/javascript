@@ -12,7 +12,6 @@
         let result = await fetch("https://jsonplaceholder.typicode.com/posts");
         let data = await result.json();
         let container = document.querySelector(".container");
-        console.log(start, val);
         for (let i = start; i < val; i++) {
           let div = document.createElement("div");
           let p = document.createElement("p");
