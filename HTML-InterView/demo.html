@@ -70,11 +70,17 @@
       quos!
     </div>
     <script>
-      // let click = document.addEventListener("click", (e) => {
-      //   console.log(e.clientX, e.clientY);
-      // });
-      document.addEventListener("DOMContentLoaded", (e) => {
-        console.log(window.innerHeight, document.body.clientHeight);
+      let click = document.addEventListener("click", (e) => {
+        console.log(e.clientX, e.clientY);
+      });
+      document.addEventListener("scroll", (e) => {
+        console.log(window.innerHeight, window.scrollY);
+        let div = document.querySelector("body");
+        if (window.innerHeight * (5 / 100) <= window.scrollY) {
+          div.setAttribute("style", "background-color:black;color:white");
+        } else {
+          div.setAttribute("style", "");
+        }
       });
     </script>
   </body>
