@@ -24,7 +24,7 @@ function Prom2(params) {
 
 function race(promises) {
   return new Promise(function (res, rej) {
-    promises.forEach(async (i) => {
+    promises.forEach((i) => {
       Promise.resolve(i)
         .then((e) => res(e))
         .catch((e) => rej(e));
