@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        height: 300px;
+        width: 300px;
+        border: 1px solid black;
+        overflow: hidden;
+        margin: auto;
+        background: url(./Assets/short.png);
+        background-size: 100%;
+      }
+      .imageHide {
+        opacity: 0;
+        transition: opacity 1000ms ease-in-out;
+      }
+      .imageShow {
+        opacity: 1;
+        transition: opacity 1000ms ease-in-out;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img
+        src="./Assets/Main.jpeg"
+        alt=""
+        style="width: 100%"
+        class="imageHide"
+      />
+    </div>
+    <script>
+      let img = document.querySelector("img");
+      img.addEventListener("load", (e) => {
+        img.classList.add("imageShow");
+        img.classList.remove("imageHide");
+      });
+    </script>
+  </body>
+</html>
