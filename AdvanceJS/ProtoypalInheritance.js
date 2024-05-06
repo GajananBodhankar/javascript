@@ -10,13 +10,13 @@ let Animal = {
     this.isSleeping = true;
   },
 };
-
 let Rabbit = {};
 // Rabbit.__proto__ = Animal;
 // OR
-// Object.setPrototypeOf(Rabbit, Animal);
+Object.setPrototypeOf(Rabbit, Animal);
+
+Rabbit.walks();
 
 Rabbit.sleep();
 
-Rabbit.walks();
 Animal.walks();
