@@ -1,0 +1,25 @@
+<!-- Triggering an event without user interaction is called as event simulation -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="count"></p>
+    <button>Increment Count</button>
+    <script>
+      let count = 0;
+      let p = document.querySelector("p");
+      p.innerText = count;
+      let btn = document.getElementsByTagName("button")[0];
+      btn.addEventListener("click", () => {
+        p.innerText = +p.innerText + 1;
+      });
+      let id = setInterval(() => {
+        btn.click();
+      }, 1000);
+    </script>
+  </body>
+</html>
