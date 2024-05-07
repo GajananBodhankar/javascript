@@ -1,0 +1,46 @@
+<!-- Rather than attaching eventListeners to each element in a container, 
+attaching eventListener to the container itself and then evaluating the event 
+helps write very less code and performance enhancement
+CALLED AS EVENT DELEGATION
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        width: 300px;
+        margin: auto;
+        border: 1px solid black;
+        padding: 20px;
+      }
+      .container > img {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <button id="btn">I am a button</button>
+      <p id="p">I am a p tag</p>
+      <img id="image" src="../HTML-InterView/Assets/Main.jpeg" alt="" />
+    </div>
+    <script>
+      let container = document.querySelector(".container");
+      container.addEventListener("click", (e) => {
+        console.log(e.srcElement.id, e.srcElement.tagName);
+        if (e.srcElement.id == "image") {
+          alert("IMage clicked");
+        } else if (e.srcElement.id == "p") {
+          alert("clicked on p tag");
+        } else if (e.srcElement.id == "btn") {
+          alert("button clicked");
+        } else {
+          alert("Container clicked");
+        }
+      });
+    </script>
+  </body>
+</html>
