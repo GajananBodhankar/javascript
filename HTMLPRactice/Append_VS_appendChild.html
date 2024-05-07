@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container"></div>
+    <script>
+      let div = document.getElementsByClassName("container")[0];
+      let x = document.createElement("p");
+      x.innerText = "Hello i am a p tag";
+    //   div.appendChild("<p>hiii</p>");
+      // AppendChild always appends a node element.
+      // here we'll be getting an error
+      // ** Failed to execute 'appendChild' on 'Node': parameter 1 is not of type 'Node'.**
+      // but div.append() take a string or a node element as well
+      div.append(x);
+    </script>
+  </body>
+</html>
