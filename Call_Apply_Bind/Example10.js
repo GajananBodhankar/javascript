@@ -3,6 +3,7 @@ function check() {
     this.show = function () {
         this.age = 22;
         console.log(this.name);
+        this.name = "john"
 
         function one() {
             console.log(this.name, this.age);
@@ -11,8 +12,20 @@ function check() {
         // var one = () => {
         //     console.log(this.name, this.age);
         // }
-        one();
+        one.call(this);
     };
 }
 let i = new check();
 i.show();
+
+
+
+let Obj = {
+    name: 'gajanan',
+    show: function () {
+        this.name = 'max';
+        console.log(this.name);
+    },
+};
+
+Obj.show();
