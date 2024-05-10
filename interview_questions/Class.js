@@ -9,11 +9,9 @@ class Employee {
 }
 
 // Prototypal inheritance using class
-
 // let e = new Employee();
 // e.prototype = new User();
 // console.log(e.prototype.name)
-
 
 function One() {
     this.name = 'max';
