@@ -1,3 +1,3 @@
-
-
-console.log(one.getDoY(), two.getDoY())
+class A{
+    
+}
