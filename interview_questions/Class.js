@@ -9,9 +9,9 @@ class Employee {
 }
 
 // Prototypal inheritance using class
-let e = new Employee();
-e.prototype = new User();
-console.log(e.prototype.name)
+// let e = new Employee();
+// e.prototype = new User();
+// console.log(e.prototype.name)
 
 function One() {
     this.name = 'max';
@@ -22,9 +22,9 @@ function Two() {
     console.log(this.age, this.name)
 }
 
-Two.prototype = new One();
-let j = new Two();
-console.log(j.name)
+// Two.prototype = new One();
+// let j = new Two();
+// console.log(j.name)
 
 let t = new Two();
 t.prototype = new One();
